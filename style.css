@@ -162,9 +162,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100px;
+  width: 100%;
   padding-top: 60px;
   font-size: 60px;
   color: antiquewhite;
+  position: relative;
 }
 
 .results__loading--spinner {
@@ -172,10 +175,11 @@ p {
 }
 
 .results__loading .results__loading--spinner {
-  display: block !important;
+  display: block !important; 
 }
 
 .fa-spinner {
+  position: absolute;
   animation: rotate 600ms infinite linear;
 }
 

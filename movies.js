@@ -3,6 +3,7 @@
 //put the search bar results into the api search by makig the api dynamic
 //create skeleton loading page for when the fetching data is taking place
 var currentMovies = [];
+//set spinner so that it only shows the first time something is searched for
 
 function renderMovies(list) {
     const movieListEl = document.querySelector('.movie__list');
@@ -17,10 +18,12 @@ async function movies() {
         const resultsContainer = document.getElementsByClassName('container__results')[0];
         //loading spinner
         const loadingSpinner = document.querySelector('.results__loading');
+        const movieListEl = document.querySelector('.movie__list')
        
         if (query) {
             resultsContainer.style.display = 'block';
-            loadingSpinner.style.display = 'block';
+            movieListEl.innerHTML = '';
+            loadingSpinner.style.display = 'block'
         }
         else {
             resultsContainer.style.display = 'none';
@@ -33,7 +36,6 @@ async function movies() {
     try{
         const moviesResponse = await fetch(url);
         const moviesData = await moviesResponse.json();
-        const movieListEl = document.querySelector('.movie__list');
         console.log(moviesData)
         
         //filter out games from showing in the results
@@ -45,6 +47,8 @@ async function movies() {
         currentMovies = movieDetails;
         window.currentMovies = currentMovies;
         window.renderMovies =renderMovies;
+        
+        //Hide the spinner then render movies after a delay
         setTimeout(() => {
             
             loadingSpinner.style.display = 'none';
