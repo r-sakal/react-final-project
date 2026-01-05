@@ -3,7 +3,7 @@
 //put the search bar results into the api search by makig the api dynamic
 //create skeleton loading page for when the fetching data is taking place
 var currentMovies = [];
-//set spinner so that it only shows the first time something is searched for
+
 
 function renderMovies(list) {
     const movieListEl = document.querySelector('.movie__list');
