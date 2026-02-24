@@ -1,10 +1,21 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router'
+import Nav from './components/Nav';
+import Results from './pages/Results';
+import Movie from './pages/Movie';
+import Home from './pages/Home';
 
-export default function App() {
+function App() {
   return (
-    <div className="react-app">
-      <h2>React is mounted</h2>
-      <p>Keep your existing scripts (`movies.js`, `filters.js`) for now; migrate to React components when ready.</p>
-    </div>
+    <Router>
+        <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/movie/:id" element={<Movie />} />
+      </Routes>
+    </Router>
   )
 }
+
+export default App;

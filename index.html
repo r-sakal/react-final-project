@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="./assets/FilmSlate.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
     <link rel="stylesheet" href="style.css">
@@ -9,51 +10,15 @@
     <script src="https://kit.fontawesome.com/1bc2e2affb.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <main>
     <section>
         <div class="Banner img">
-              <img class="marquee" src=".//assets/marquee.png" alt="marquee with banner">
+              <img class="marquee" src="./src/assets/marquee.png" alt="marquee with banner">
         </div>
         <header class="background__img">
-                <div>
-                    <h1>Looking for a good movie to watch?</h1> 
-                    <div class="search__bar">
-                        <input type="text" id="search__area" placeholder="Part of a title or series">
-                        <input type="button" id="btn" value="Look it up!">
-                    </div>
-                </div>
-                <div class="container__results" style="display: none">
-                    <select id="filter" onchange="filterMovies(event)">
-                        <option value="" disabled selected>Sort</option>
-                        <option value="IMDB_High_To_Low"> IMDB Rating, High to Low</option>
-                        <option value="IMDB_Low_To_High"> IMDB Rating, Low to High</option>
-                        <option value="RT_High_To_Low"> Rotten Tomatoes Score, High to Low</option>
-                        <option value="RT_Low_To_High"> Rotten Tomatoes Score, Low to High</option>
-                        <option value="Release_Newest"> Release Date, Newest</option>
-                        <option value="Release_Oldest"> Release Date, Oldest</option>
-                    </select>
-                     <div class="results__loading" style="display: none;">
-                    <i class="fa-solid fa-spinner results__loading--spinner"></i>
-                </div>
-                    <div class="row__search--results">
-                        <div class="movie__list">
-                            <div class="movie__card">
-                                <div class="movie__card--container">
-                                    <img class="box__art" src="" >
-                                    <h3 class="movie__title"></h3>
-                                    <p class="release__date"></p>
-                                    <p class="imdb__page"></p>
-                                    <p class="rotten__tomatoes"></p>
-
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-            </header>
+        </header>
         </section>
     </main>
-    <script src="movies.js"></script>
-    <script src="filters.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 </body>
