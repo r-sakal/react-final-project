@@ -11,8 +11,8 @@ function App() {
         <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/movie/:id" element={<Movie />} />
+        <Route path=":results" element={<Results />} />
+        <Route path=":id" element={<Movie />} />
       </Routes>
     </Router>
   )
