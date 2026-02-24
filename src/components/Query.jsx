@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Query = () => {
+    var currentMovies = [];
+
+
     async function movies() {
     document.getElementById('btn')
     .addEventListener('click', async () => {
