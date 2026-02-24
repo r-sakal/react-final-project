@@ -64,10 +64,10 @@ nav {
   height: 45px;
   display: flex;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
-  background-color: rgba(82, 11, 11, 0.14);
+  background-color: rgba(82, 11, 11, 0.461);
   position: relative;
-  margin-bottom: 290px;
-  margin-top: -290px;
+  margin-bottom:400px;
+  margin-top: -435px;
   
 }
 
