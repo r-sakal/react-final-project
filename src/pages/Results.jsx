@@ -3,9 +3,11 @@ import SearchBar from "../components/SearchBar";
 import MovieList from "../components/MovieList";
 
 const Results = () => {
+
+
   return (
     <>
-      <SearchBar />
+    <h1>Search Again</h1> 
       <MovieList />
     </>
   );

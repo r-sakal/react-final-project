@@ -15,7 +15,7 @@ const Nav = () => {
                         Home</a>
                     </li>
                     <li className="nav__list">
-                        <a href="/" className="nav__links">
+                        <a href=":results" className="nav__links">
                         Results</a>
                     </li>
                 </ul>

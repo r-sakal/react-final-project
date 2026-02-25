@@ -66,8 +66,8 @@ nav {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
   background-color: rgba(82, 11, 11, 0.461);
   position: relative;
-  margin-bottom:400px;
-  margin-top: -435px;
+  margin-bottom:10px;
+  margin-top: -20px;
   
 }
 
@@ -133,9 +133,11 @@ SEARCH FOR A MOVIE
   justify-content: space-around;
   font-size: 20px;
   border-radius: 20px;
+  padding-left: 8px;
+  
 }
 
-#filter, #btn, #search__area {
+#filter, #btn, .search__area {
   background-color: rgba(82, 11, 11, 0.677);
   border: 2px solid rgb(235, 207, 170);
 }
@@ -152,7 +154,7 @@ color: antiquewhite;
   font-size: 12px;
 }
 
-#search__area {
+.search__area {
   color: antiquewhite;
   padding: 0 8px;
 }
