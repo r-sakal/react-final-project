@@ -13,9 +13,15 @@ const MovieList = () => {
 
         try {
             const response = await axios.get(url);
+            // filter out games from the api response
             const filteredMovies = (response.data.Search || []).filter(movie => movie.Type !== 'game');
             
-            const detailMovies = filteredMovies.map(m => fetchMovieDetails(m.imdbID, apiKey));
+            // filter out duplicate movies from the api response
+            const uniqueMovies = filteredMovies.filter((movie, index, self) =>
+                index === self.findIndex((m) => m.imdbID === movie.imdbID)
+            );
+
+            const detailMovies = uniqueMovies.map(m => fetchMovieDetails(m.imdbID, apiKey));
             const fullMovies = await Promise.all(detailMovies);
 
             setMovies(fullMovies);
@@ -47,7 +53,7 @@ const MovieList = () => {
           return (
 
             
-            <div className="movie__card">
+            <div className="movie__card" key={movie.imdbID}>
                         <img className="box__art" src={movie.Poster} alt={movie.Title} />
                           <h3 className='movie__title'>{movie.Title}</h3>
                           <p className='release__date'>Released {movie.Year}</p>
