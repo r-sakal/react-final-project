@@ -14,6 +14,7 @@ const MovieList = () => {
             const response = await axios.get(url);
             const filteredMovies = (response.data.Search || []).filter(movie => movie.Type !== 'game');
             setMovies(filteredMovies);
+            console.log(filteredMovies);
         } catch (error) {
             console.error('Error fetching movies:', error);
         }
@@ -28,12 +29,13 @@ const MovieList = () => {
                     <div className="movie__card" key={movie.imdbID}>
                         <img className="box__art" src={movie.Poster} alt={movie.Title} />
                           <h3 className='movie__title'>{movie.Title}</h3>
-                          <p className='release__date'>{movie.Year}</p>
+                          <p className='release__date'>Released {movie.Year}</p>
                     </div>
                 ))}
             </div>
         </>
     );
 };
+
 
 export default MovieList;
