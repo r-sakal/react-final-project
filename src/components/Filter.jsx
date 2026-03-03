@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 
-const Filter = () => {
+const Filter = ({ movies, onFilterChange }) => {
   const [selectedFilter, setSelectedFilter] = useState("");
 
   function getImdb(m) {
@@ -30,9 +30,8 @@ const Filter = () => {
   function filterMovies(event) {
     const value = event.target.value;
     setSelectedFilter(value);
-    console.log("Filter value:", value);
-    const list = Array.isArray(window.currentMovies)
-      ? [...window.currentMovies]
+    const list = Array.isArray(movies)
+      ? [...movies]
       : [];
 
     //filter options
@@ -61,20 +60,12 @@ const Filter = () => {
       case "Release_Oldest":
         list.sort((a, b) => getYear(a) - getYear(b));
         break;
+      default:
+        break;
     }
 
-    window.currentMovies = list;
-    if (typeof window.renderMovies === "function") {
-      window.renderMovies(list);
+    onFilterChange(list);
     }
-  }
-
-  useEffect(() => {
-    if (selectedFilter === "") {
-      setSelectedFilter("");
-      filterMovies({ target: { value: "" } });
-    }
-  }, []);
 
   return (
     <>
@@ -82,22 +73,12 @@ const Filter = () => {
         <option value="" disabled>
           Sort
         </option>
-        {
-          <>
             <option value="IMDB_High_To_Low"> IMDB Rating, High to Low</option>
             <option value="IMDB_Low_To_High"> IMDB Rating, Low to High</option>
-            <option value="RT_High_To_Low">
-              {" "}
-              Rotten Tomatoes Score, High to Low
-            </option>
-            <option value="RT_Low_To_High">
-              {" "}
-              Rotten Tomatoes Score, Low to High
-            </option>
+            <option value="RT_High_To_Low"> Rotten Tomatoes Score, High to Low</option>
+            <option value="RT_Low_To_High"> Rotten Tomatoes Score, Low to High</option>
             <option value="Release_Newest"> Release Date, Newest</option>
             <option value="Release_Oldest"> Release Date, Oldest</option>
-          </>
-        }
       </select>
     </>
   );
