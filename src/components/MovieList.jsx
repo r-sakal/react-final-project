@@ -64,7 +64,7 @@ const MovieList = () => {
                   ?.Value || "N/A";
 
               return (
-                <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID}>
+                <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID} >
                 <div className="movie__card" key={movie.imdbID}>
                   <img
                     className="box__art"
