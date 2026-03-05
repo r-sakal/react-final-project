@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
 
-const MovieList = () => {
+const MovieList = ({ initialQuery }) => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
@@ -37,6 +37,12 @@ const MovieList = () => {
       console.error("Error fetching movies:", error);
     }
   };
+
+  useEffect(() => {
+    if (initialQuery) {
+      fetchMovies(initialQuery);
+    }
+  }, [initialQuery]);
 
   const fetchMovieDetails = async (imdbID, apiKey) => {
     const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`;
