@@ -44,12 +44,10 @@ const MovieDetails = () => {
         <div className="movie__detail--card">
         <img src={movie.Poster} alt={movie.Title} />
         <div className="movie__detail--details">
-        <h1>{movie.Title}</h1>
-        <p className='movie__detail--title'><strong>Released:</strong> {movie.Year}</p>
+        <h1 className='movie__detail--title'>{movie.Title}</h1>
+        <p className='movie__detail--release'><strong>Released:</strong> {movie.Year}</p>
         <p className='movie__detail--rated'><strong>Rated:</strong> {movie.Rated}</p>
         <p className='movie__detail--plot'><strong>Plot:</strong> {movie.Plot}</p>
-        <p className='movie__detail--imdb'><strong>IMDb Rating:</strong> {imdb}</p>
-        <p className='movie__detail--rt'><strong>Rotten Tomatoes:</strong> {rt}</p>
         <p className='movie__detail--director'><strong>Director:</strong> {movie.Director}</p>
         <p className='movie__detail--actors'><strong>Actors:</strong> {movie.Actors}</p>
         <p className='movie__detail--runtime'><strong>Runtime:</strong> {movie.Runtime}</p>

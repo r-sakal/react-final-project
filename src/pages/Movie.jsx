@@ -1,13 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MovieDetails from '../components/MovieDetails';
 
 const Movie = () => {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
+
     return (
     <>
-    <Link to="/results">
-            <button id="btn" className="btn">← Back</button>
-            </Link>
+    <button id="btn" className="btn" onClick={handleBack}>← Back</button>
             <MovieDetails />
     </>
     );

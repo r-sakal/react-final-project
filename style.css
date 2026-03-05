@@ -246,11 +246,18 @@ display: block;
 }
 
 .movie__title, .release__date, .imdb__page, .rotten__tomatoes, p {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: antiquewhite;
-  
-  
 }
+
+.movie__detail--title {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 .movie__title {
   display: block;
   font-size: 18px;
