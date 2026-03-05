@@ -286,36 +286,6 @@ p {
     Skeleton Loading State 
     */
 
-.results__loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 100%;
-  padding-top: 60px;
-  font-size: 60px;
-  color: antiquewhite;
-  position: relative;
-}
 
-.results__loading--spinner {
-  display: none !important;
-}
 
-.results__loading .results__loading--spinner {
-  display: block !important; 
-}
 
-.fa-spinner {
-  position: absolute;
-  animation: rotate 600ms infinite linear;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}

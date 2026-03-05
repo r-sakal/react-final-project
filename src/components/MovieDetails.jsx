@@ -5,7 +5,6 @@ import {  useParams } from 'react-router-dom';
 const MovieDetails = () => {
     const { imdbID } = useParams();
     const [movie, setMovie] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -18,17 +17,13 @@ const MovieDetails = () => {
                 setMovie(response.data);
             } catch (err) {
                 setError('Error fetching movie details.');
-            } finally {
-                setLoading(false);
-            }
+            } 
+            
         };
 
         fetchMovieDetails();
     }, [imdbID]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
     if (error) {
         return <div>{error}</div>;
     } 
