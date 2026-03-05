@@ -75,6 +75,7 @@ li {
   justify-content: center;
 }
 
+
 /* NAV */
 
 nav {
@@ -211,6 +212,12 @@ display: block;
   border: 1px solid rgb(235, 207, 170);
   border-radius: 10px;
   background-color: rgba(82, 11, 11, 0.677);
+}
+
+.movie__detail {
+  display: flex;
+  justify-content: center;
+
 }
 
 .movie__detail--card { 

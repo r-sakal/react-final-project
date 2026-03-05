@@ -40,7 +40,7 @@ const MovieDetails = () => {
     const rt = movie.Ratings.find((r) => r.Source === 'Rotten Tomatoes')?.Value || "N/A";
 
     return (
-        <>
+        <div className="movie__detail">
         <div className="movie__detail--card">
         <img src={movie.Poster} alt={movie.Title} />
         <div className="movie__detail--details">
@@ -56,7 +56,7 @@ const MovieDetails = () => {
         <p className='movie__detail--genre'><strong>Genre:</strong> {movie.Genre}</p>
         </div>
       </div>
-        </>
+        </div>
     );
 }
 
