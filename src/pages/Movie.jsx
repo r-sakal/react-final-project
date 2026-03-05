@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import MovieDetails from '../components/MovieDetails';
 
 const Movie = () => {
     return (
-        
-        <div>
-            <h1>Movie Details</h1>
-        </div>
+    <>
+    <Link to="/results">
+            <button id="btn" className="btn">← Back</button>
+            </Link>
+            <MovieDetails />
+    </>
     );
-}
+};
 
 export default Movie;
+
