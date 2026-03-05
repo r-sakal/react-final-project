@@ -9,17 +9,13 @@ const Query = () => {
     .addEventListener('click', async () => {
         const query = document.getElementById('search__area').value;
         const resultsContainer = document.getElementsByClassName('container__results')[0];
-        // loading spinner
-        const loadingSpinner = document.querySelector('.results__loading');
         const movieListEl = document.querySelector('.movie__list');
 
         if (query) {
             resultsContainer.style.display = 'block';
             movieListEl.innerHTML = '';
-            loadingSpinner.style.display = 'block';
         } else {
             resultsContainer.style.display = 'none';
-            loadingSpinner.style.display = 'none';
             return;
         }
 
@@ -41,9 +37,7 @@ const Query = () => {
             window.currentMovies = currentMovies;
             window.renderMovies = renderMovies;
 
-            // Hide the spinner then render movies after a delay
             setTimeout(() => {
-                loadingSpinner.style.display = 'none';
                 renderMovies(currentMovies);
             }, 2000);
         } catch (error) {

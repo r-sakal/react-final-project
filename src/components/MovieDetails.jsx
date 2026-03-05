@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {  useParams } from 'react-router-dom';
+import { MovieDetailsSkeleton } from './SkeletonLoader';
 
 const MovieDetails = () => {
     const { imdbID } = useParams();
     const [movie, setMovie] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -17,12 +19,17 @@ const MovieDetails = () => {
                 setMovie(response.data);
             } catch (err) {
                 setError('Error fetching movie details.');
-            } 
-            
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchMovieDetails();
     }, [imdbID]);
+
+    if (loading) {
+        return <MovieDetailsSkeleton />;
+    }
 
     if (error) {
         return <div>{error}</div>;
@@ -36,7 +43,7 @@ const MovieDetails = () => {
 
     return (
         <div className="movie__detail">
-        <div className="movie__detail--card">
+        <div className="movie__detail--card movie__detail--card--skeleton">
         <img src={movie.Poster} alt={movie.Title} />
         <div className="movie__detail--details">
         <h1 className='movie__detail--title'>{movie.Title}</h1>

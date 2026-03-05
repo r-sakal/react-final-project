@@ -3,12 +3,15 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
+import { MovieListSkeleton } from "./SkeletonLoader";
 
 const MovieList = ({ initialQuery }) => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [loading, setLoading] = useState(!!initialQuery);
 
   const fetchMovies = async (query) => {
+    setLoading(true);
     const apiKey = "7d0b778a";
     const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(query)}`;
 
@@ -35,6 +38,8 @@ const MovieList = ({ initialQuery }) => {
       console.log(fullMovies);
     } catch (error) {
       console.error("Error fetching movies:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,6 +58,16 @@ const MovieList = ({ initialQuery }) => {
   const handleFilterChange = (sortedList) => {
     setFilteredMovies(sortedList);
   };
+
+  if (loading) {
+    return (
+      <>
+        <SearchBar onSearch={fetchMovies} />
+        <Filter movies={movies} onFilterChange={handleFilterChange} />
+        <MovieListSkeleton />
+      </>
+    );
+  }
 
   return (
     <>
