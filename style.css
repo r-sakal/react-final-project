@@ -83,10 +83,11 @@ nav {
   display: flex;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
   background-color: rgba(82, 11, 11, 0.461);
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   margin-bottom:10px;
-  margin-top: -20px;
-  
 }
 
 .nav__container {
@@ -200,19 +201,21 @@ display: block;
 .movie__list {
   max-width: 1200px;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .movie__card {
-  margin-bottom: 16px;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgb(235, 207, 170);
   border: 1px solid rgb(235, 207, 170);
   border-radius: 10px;
   background-color: rgba(82, 11, 11, 0.677);
-  width: 300px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 a:has(.movie__card) {
@@ -237,10 +240,20 @@ a:has(.movie__card) {
 }
 
 .movie__detail--card { 
-  max-width: 50%;
+  width: 90%;
+  max-width: 900px;
   margin-top: 16px;
   display: flex;
+  flex-direction: row;
   background-color: rgba(82, 11, 11, 0.833);
+  box-sizing: border-box;
+}
+
+.movie__detail--card img {
+  width: 260px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
 }
 
 .movie__detail--details {
@@ -352,4 +365,16 @@ p {
   margin-bottom: 20px;
 }
 
+/* Media */
 
+@media (max-width: 600px) {
+  .movie__detail--card {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .movie__detail--card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+}
